@@ -1,55 +1,77 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!-- SYNC IMPACT REPORT:
+Version change: N/A (initial creation) → 1.0.0
+Modified principles: N/A
+Added sections: All principles and sections based on user requirements
+Removed sections: N/A
+Templates requiring updates:
+- .specify/templates/plan-template.md ✅ updated
+- .specify/templates/spec-template.md ✅ updated
+- .specify/templates/tasks-template.md ✅ updated
+- .specify/templates/commands/*.md ⚠ pending review
+Follow-up TODOs: None
+-->
+# AI-Spec-Driven Book with Integrated RAG Chatbot Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Spec-Driven Development (Mandatory)
+No code, content, or infrastructure may be created without an approved specification. All work must strictly follow the order: Constitution → Specs → Plan → Tasks → Implementation. Specs are the single source of truth.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. AI-Native Authorship
+All book content, specs, plans, tasks, and code must be produced via Claude Code or AI agents. Humans may review, approve, or reject outputs but may not manually write implementation artifacts.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Accuracy & Verifiability
+All technical claims must be correct, reproducible, and verifiable. No speculative or unverifiable statements are allowed.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Modularity & Traceability
+Every chapter, feature, API, and chatbot capability must map to a spec section and a task ID. No orphan content or code is permitted.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+## Book Standards
 
-### [PRINCIPLE_6_NAME]
+Platform: Docusaurus
+Deployment: GitHub Pages
+Structure: Modular chapters, clear navigation, version-controlled documentation
+Writing Style: Clear, concise, technical targeting software engineers & AI practitioners
+Content Rules: No placeholder text, no undocumented assumptions, all examples must be runnable or logically complete
 
+## RAG Chatbot Standards
 
-[PRINCIPLE__DESCRIPTION]
+Architecture: OpenAI Agents / ChatKit SDKs, FastAPI backend, Neon Serverless Postgres (metadata + conversations), Qdrant Cloud (Free Tier) for vector search
+Capabilities (Mandatory): Answer questions about the full book content, answer questions based only on user-selected text, cite retrieved sections in responses
+Constraints: No hallucinated answers, if context is missing, the bot must say so explicitly
+Embedding: Chatbot must be embedded directly within the Docusaurus site
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## Infrastructure & Code Rules
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+Backend: FastAPI only, clean, typed, modular Python code
+Data: Explicit schemas for embeddings, documents, and chats
+Security: No hardcoded secrets, environment-based configuration only
+Testing: Core logic must be testable, no untested critical paths
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+## Prohibitions
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+No manual coding by humans
+No implementation before approved specs
+No undocumented features
+No copy-pasted content from external sources
+No hallucinated APIs, SDKs, or services
+
+## Success Criteria
+
+The project is considered complete only if:
+
+- The book is live on GitHub Pages
+- All content follows approved specs
+- The RAG chatbot correctly retrieves and answers from book content and correctly limits answers to selected text when required
+- Every artifact is traceable to a spec and task
+- No constitutional rule violations exist
+
+## Enforcement
+
+Any violation of this constitution invalidates the affected work and requires rollback to the last compliant state.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This constitution supersedes all other practices. All implementation work must strictly follow these principles. Amendments require explicit documentation, approval process, and migration plan for existing artifacts. All development must verify compliance with these rules. Any work that violates these principles must be rolled back to the last compliant state.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2026-01-04 | **Last Amended**: 2026-01-04
